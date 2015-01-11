@@ -1,0 +1,98 @@
+{include="header"}
+
+   <div class="container-fluid">
+      <section class="content">
+         
+         <!-- Inicio Fila 1 de widgets -->
+         <div class="row">
+            {if condition="in_array('presupuestos_y_pedidos',$GLOBALS['plugins'])"}
+            <!-- Widget 1x1 -->
+            <div class="col-lg-6 col-sm-6 col-xs-12">
+               <div class="bs-callout bs-callout-info">
+                  <div class="inner">
+                     <h4><strong><span class="text-capitalize">{#FS_PRESUPUESTOS#}</span> de clientes</strong></h4>
+                     <p>{loop="$fsc->num_presupuestos_pendientes()"}{$value["total"]}{/loop} pendientes / {loop="$fsc->num_presupuestos()"}{$value["total"]}{/loop} aprobados</p>
+                  </div>
+                  <div class="text-center">
+                     </br>
+                     <span class="glyphicon glyphicon-list-alt"></span>
+                     <a href="index.php?page=ventas_pedidos&pendientes=TRUE">
+                        Más detalles <i class="glyphicon glyphicon-chevron-right"></i>
+                     </a>
+                  </div>
+               </div>
+            </div>
+            {else}
+            {if condition="$show_presupuestos_y_pedidos==TRUE"}
+            <div class="col-lg-6 col-sm-6 col-xs-12">
+               <div class="bs-callout bs-callout-info">
+                  Se requiere el plugin <strong>Presupuestos y pedidos</strong> para ver información sobre los presupuestos
+               </div>
+            </div>
+            {/if}
+            {/if}
+            <!-- Widget 1x2 -->
+            {if condition="in_array('presupuestos_y_pedidos',$GLOBALS['plugins'])"}
+            <div class="col-lg-6 col-sm-6 col-xs-12">
+               <div class="bs-callout bs-callout-success">
+                  <div class="inner">
+                     <h4><strong><span class="text-capitalize">{#FS_PEDIDOS#}</span> de clientes</strong></h4>
+                     <p>{loop="$fsc->num_pedidos_pendientes()"}{$value["total"]}{/loop} pendientes / {loop="$fsc->num_pedidos()"}{$value["total"]}{/loop} aprobados</p>
+                  </div>
+                  <div class="text-center">
+                     </br>
+                     <span class="glyphicon glyphicon-list-alt"></span>
+                     <a href="index.php?page=ventas_pedidos&pendientes=TRUE">
+                        Más detalles <i class="glyphicon glyphicon-chevron-right"></i>
+                     </a>
+                  </div>
+               </div>
+            </div>
+            {else}
+            {if condition="$show_presupuestos_y_pedidos==TRUE"}
+            <div class="col-lg-6 col-sm-6 col-xs-12">
+               <div class="bs-callout bs-callout-success">
+                  Se requiere el plugin <strong>Presupuestos y pedidos</strong> para ver información sobre los pedidos
+               </div>
+            </div>
+            {/if}
+            {/if}
+            <!-- Widget 1x3 -->
+            <div class="col-lg-6 col-sm-6 col-xs-12">
+               <div class="bs-callout bs-callout-warning">
+                  <div class="inner">
+                     <h4><strong><span class="text-capitalize">{#FS_ALBARANES#}</span> de clientes</strong></h4>
+                     <p>{loop="$fsc->num_albaranes_pendientes()"}{$value["total"]}{/loop} pendientes / {loop="$fsc->num_albaranes()"}{$value["total"]}{/loop} aprobados</p>
+                  </div>
+                  <div class="text-center">
+                     </br>
+                     <span class="glyphicon glyphicon-list-alt"></span>
+                     <a href="index.php?page=ventas_albaranes&pendientes=TRUE">
+                        Más detalles <i class="glyphicon glyphicon-chevron-right"></i>
+                     </a>
+                  </div>
+               </div>
+            </div>
+            <!-- Widget 1x4 -->
+            <div class="col-lg-6 col-sm-6 col-xs-12">
+               <div class="bs-callout bs-callout-danger">
+                  <div class="inner">
+                     <h4><strong><span class="text-capitalize">Facturas</span> de clientes</strong></h4>
+                     <p>{loop="$fsc->num_facturas_pendientes()"}{$value["total"]}{/loop} pendientes / {loop="$fsc->num_facturas()"}{$value["total"]}{/loop} aprobados</p>
+                  </div>
+                  <div class="text-center">
+                     </br>
+                     <span class="glyphicon glyphicon-list-alt"></span>
+                     <a href="index.php?page=ventas_facturas&sinpagar=TRUE">
+                        Más detalles <i class="glyphicon glyphicon-chevron-right"></i>
+                     </a>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <!-- Fin Fila 1 de widgets -->
+
+      </section>
+   </div>
+
+{include="footer"}
