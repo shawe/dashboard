@@ -62,7 +62,8 @@ class dashboard extends fs_controller
    public function num_presupuestos()
    {
       $data = $this->db->select("SELECT COUNT( DISTINCT(codigo)) AS total
-            FROM `presupuestoscli`");
+            FROM `presupuestoscli`
+            WHERE idpedido IS NOT NULL");
       return $data;
    }
    
@@ -79,7 +80,8 @@ class dashboard extends fs_controller
    public function num_pedidos()
    {
       $data = $this->db->select("SELECT COUNT( DISTINCT(codigo)) AS total
-            FROM `pedidoscli`");
+            FROM `pedidoscli`
+            WHERE idalbaran IS NOT NULL");
       return $data;
    }
    
@@ -96,7 +98,8 @@ class dashboard extends fs_controller
    public function num_albaranes()
    {
       $data = $this->db->select("SELECT COUNT( DISTINCT(codigo)) AS total
-            FROM `albaranescli`");
+            FROM `albaranescli`
+            WHERE idfactura IS NOT NULL");
       return $data;
    }
    
@@ -113,7 +116,8 @@ class dashboard extends fs_controller
    public function num_facturas()
    {
       $data = $this->db->select("SELECT COUNT( DISTINCT(codigo)) AS total
-            FROM `facturascli`");
+            FROM `facturascli`
+            WHERE pagada=TRUE");
       return $data;
    }
    
