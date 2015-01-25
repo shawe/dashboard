@@ -58,12 +58,20 @@ class dashboard extends fs_controller
       $show_presupuestos_y_pedidos = TRUE;
    }
    
-   /* Devuelve el número total de presupuestos hechos */
+   /* Devuelve el número total de presupuestos realizados */
    public function num_presupuestos()
    {
       $data = $this->db->select("SELECT COUNT( DISTINCT(codigo)) AS total
+            FROM `presupuestoscli`");
+      return $data;
+   }
+   
+   /* Devuelve el número total de presupuestos aprobados */
+   public function num_presupuestos_aprobados()
+   {
+      $data = $this->db->select("SELECT COUNT( DISTINCT(codigo)) AS total
             FROM `presupuestoscli`
-            WHERE idpedido IS NOT NULL");
+            WHERE status=0");
       return $data;
    }
    
@@ -72,16 +80,33 @@ class dashboard extends fs_controller
    {
       $data = $this->db->select("SELECT COUNT( DISTINCT(codigo)) AS total
             FROM `presupuestoscli`
-            WHERE idpedido IS NULL");
+            WHERE status=1");
       return $data;
    }
    
-   /* Devuelve el número total de pedidos hechos */
+   /* Devuelve el número total de presupuestos rechazados */
+   public function num_presupuestos_rechazados()
+   {
+      $data = $this->db->select("SELECT COUNT( DISTINCT(codigo)) AS total
+            FROM `presupuestoscli`
+            WHERE status=2");
+      return $data;
+   }
+
+   /* Devuelve el número total de pedidos realizados */
    public function num_pedidos()
    {
       $data = $this->db->select("SELECT COUNT( DISTINCT(codigo)) AS total
+            FROM `pedidoscli`");
+      return $data;
+   }
+   
+   /* Devuelve el número total de pedidos aprobados */
+   public function num_pedidos_aprobados()
+   {
+      $data = $this->db->select("SELECT COUNT( DISTINCT(codigo)) AS total
             FROM `pedidoscli`
-            WHERE idalbaran IS NOT NULL");
+            WHERE status=0");
       return $data;
    }
    
@@ -90,12 +115,29 @@ class dashboard extends fs_controller
    {
       $data = $this->db->select("SELECT COUNT( DISTINCT(codigo)) AS total
             FROM `pedidoscli`
-            WHERE idalbaran IS NULL");
+            WHERE status=1");
+      return $data;
+   }
+   
+   /* Devuelve el número total de pedidos rechazados */
+   public function num_pedidos_rechazados()
+   {
+      $data = $this->db->select("SELECT COUNT( DISTINCT(codigo)) AS total
+            FROM `pedidoscli`
+            WHERE status=2");
+      return $data;
+   }
+   
+   /* Devuelve el número total de albaranes realizados */
+   public function num_albaranes()
+   {
+      $data = $this->db->select("SELECT COUNT( DISTINCT(codigo)) AS total
+            FROM `albaranescli`");
       return $data;
    }
    
    /* Devuelve el número total de albaranes hechos */
-   public function num_albaranes()
+   public function num_albaranes_aprobados()
    {
       $data = $this->db->select("SELECT COUNT( DISTINCT(codigo)) AS total
             FROM `albaranescli`
@@ -112,8 +154,16 @@ class dashboard extends fs_controller
       return $data;
    }
    
-   /* Devuelve el número total de facturas hechas */
+   /* Devuelve el número total de facturas realizadas */
    public function num_facturas()
+   {
+      $data = $this->db->select("SELECT COUNT( DISTINCT(codigo)) AS total
+            FROM `facturascli`");
+      return $data;
+   }
+   
+   /* Devuelve el número total de facturas cobradas */
+   public function num_facturas_cobradas()
    {
       $data = $this->db->select("SELECT COUNT( DISTINCT(codigo)) AS total
             FROM `facturascli`
@@ -122,7 +172,7 @@ class dashboard extends fs_controller
    }
    
    /* Devuelve el número total de facturas sin cobrar */
-   public function num_facturas_pendientes()
+   public function num_facturas_sin_cobrar()
    {
       $data = $this->db->select("SELECT COUNT( DISTINCT(codigo)) AS total
             FROM `facturascli`
