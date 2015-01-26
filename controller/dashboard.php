@@ -71,7 +71,7 @@ class dashboard extends fs_controller
    {
       $data = $this->db->select("SELECT COUNT( DISTINCT(codigo)) AS total
             FROM `presupuestoscli`
-            WHERE status=0");
+            WHERE status=1");
       return $data;
    }
    
@@ -80,7 +80,7 @@ class dashboard extends fs_controller
    {
       $data = $this->db->select("SELECT COUNT( DISTINCT(codigo)) AS total
             FROM `presupuestoscli`
-            WHERE status=1");
+            WHERE status=0");
       return $data;
    }
    
@@ -106,7 +106,7 @@ class dashboard extends fs_controller
    {
       $data = $this->db->select("SELECT COUNT( DISTINCT(codigo)) AS total
             FROM `pedidoscli`
-            WHERE status=0");
+            WHERE status=1");
       return $data;
    }
    
@@ -115,7 +115,7 @@ class dashboard extends fs_controller
    {
       $data = $this->db->select("SELECT COUNT( DISTINCT(codigo)) AS total
             FROM `pedidoscli`
-            WHERE status=1");
+            WHERE status=0");
       return $data;
    }
    
