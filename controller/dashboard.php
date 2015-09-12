@@ -283,8 +283,8 @@ class dashboard extends fs_controller
    /* Devuelve el número total de servicios en distintos estados */
    public function num_total_estados_servicios()
    {
-      $data = $this->db->select("SELECT COUNT(s.idestado) AS total, e.descripcion, e.color
-            FROM servicioscli s, estados_servicios e WHERE e.id=s.idestado GROUP BY s.idestado;");
+      $data = $this->db->select("SELECT s.idestado,e.descripcion,e.color,COUNT(s.idestado) AS total "
+              . "               FROM servicioscli s, estados_servicios e WHERE e.id=s.idestado GROUP BY s.idestado,e.descripcion,e.color;");
       return $data;
    }
 }
