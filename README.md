@@ -13,7 +13,35 @@ Pantalla de información resumida para FacturaScripts, por ejemplo para usarla c
 <strong>Características:</strong>
 
 <ul>
-   <li>Soporte para mostrar los documentes pendientes y aprobados en presupuestos, pedidos, albaranes y facturas.</li>
+	<li><strong>Soporte para facturación base:</strong>
+		<ul>
+			<li>Muestra total de albaranes y facturas realizados.</li>
+			<li>Muestra total de albaranes pendientes y aprobados.</li>
+			<li>Muestra total de facturas pendientes de cobrar/pagar.</li>
+			<li>Muestra total de facturas cobradas/pagadas.</li>
+			<li>Permite acceder a esta información en 1 click.</li>
+		</ul>
+	</li>
+	<li><strong>Soporte para presupuestos y pedidos:</strong>
+		<ul>
+			<li>Muestra total de presupuestos y pedidos realizados.</li>
+			<li>Muestra total de pendientes, rechazados y aprobados.</li>
+		</ul>
+	</li>
+	<li>Soporte para servicios:</strong>
+		<ul>
+			<li>Permite crear un servicio nuevo.</li>
+			<li>Lista y totaliza los distintos tipos de servicio.</li>
+			<li>Permite acceder a esta información en 1 click.</li>
+		</ul>
+	</li>
+	<li>Soporte para resumen de facturación:</strong>
+		<ul>
+			<li>Total de facturas de ventas y compras.</li>
+			<li>Total de albaranes pendientes de facturar.</li>
+			<li>Total de IVA a pagar.</li>
+		</ul>
+	</li>
 </ul>
 
 <br>
@@ -21,8 +49,6 @@ Pantalla de información resumida para FacturaScripts, por ejemplo para usarla c
 <strong>Sugerencias en consideración:</strong>
 
 <ul>
-   <li>Mostrar pedidos pendientes de servir</li>
-   <li>Mostrar facturas pendientes de pago</li>
    <li>Mostrar el total de ventas mensual y anual</li>
    <li>Mostrar el total de compras mensual y anual</li>
    <li>Mostrar el total de beneficio mensual y anual</li>
