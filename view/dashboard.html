@@ -287,10 +287,22 @@
                   <br/>
                   <ul class="list-group">
                      <li class="list-group-item list-group-item-success clickableRow" href="index.php?page=compras_facturas">
-                        <i class="glyphicon glyphicon-list"></i> Total facturas de ventas <span class="badge">{loop="$fsc->importe_total_facturas_ventas()"}{$value["total"]} {$fsc->simbolo_divisa()}{/loop}</span>
+                        <i class="glyphicon glyphicon-list"></i>
+                        Total facturas de ventas
+                        <span class="badge">
+                           {loop="$fsc->importe_total_facturas_ventas()"}
+                              {$fsc->show_precio($value["total"])}
+                           {/loop}
+                        </span>
                      </li>
                      <li class="list-group-item list-group-item-danger clickableRow" href="index.php?page=ventas_facturas">
-                        <i class="glyphicon glyphicon-list"></i> Total facturas de compras <span class="badge">{loop="$fsc->importe_total_facturas_compras()"}{$value["total"]} {$fsc->simbolo_divisa()}{/loop}</span>
+                        <i class="glyphicon glyphicon-list"></i>
+                        Total facturas de compras
+                        <span class="badge">
+                           {loop="$fsc->importe_total_facturas_compras()"}
+                              {$fsc->show_precio($value["total"])}
+                           {/loop}
+                        </span>
                      </li>
                   </ul>
                </div>
@@ -307,16 +319,21 @@
                   <br/>
                   <ul class="list-group">
                      <li class="list-group-item list-group-item-success clickableRow" href="index.php?page=ventas_albaranes&mostrar=pendientes">
-                        <i class="glyphicon glyphicon-list"></i> Total albaranes pendientes del mes <span class="badge">{loop="$fsc->importe_total_albaranes_ventas_pendientes()"}{$value["total"]} {$fsc->simbolo_divisa()}{/loop}</span>
+                        <i class="glyphicon glyphicon-list"></i>
+                        Total albaranes pendientes del mes
+                        <span class="badge">
+                           {loop="$fsc->importe_total_albaranes_ventas_pendientes()"}
+                              {$fsc->show_precio($value["total"])}
+                           {/loop}
+                        </span>
                      </li>
                      <li class="list-group-item list-group-item-danger">
                         <i class="glyphicon glyphicon-list"></i> Total IVA a pagar
                         <span class="badge">
                            {loop="$fsc->importe_total_iva_pagado()"}
                               {loop="$fsc->importe_total_iva_a_pagar()"}
-                                 {$value2["total"] - $value1["total"]} {$fsc->simbolo_divisa()}
+                                 {$fsc->show_precio($value2["total"] - $value1["total"])}
                               {/loop}
-
                            {/loop}
                         </span>
                      </li>

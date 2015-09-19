@@ -59,3 +59,4 @@ Pantalla de información resumida para FacturaScripts, por ejemplo para usarla c
 <strong>Apoya el plugin:</strong>
 
 Puedes apoyar el desarrollo del plugin sugiriendo y enviando cambios.
+https://www.facturascripts.com
