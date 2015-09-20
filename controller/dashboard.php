@@ -25,7 +25,7 @@ class dashboard extends fs_controller
       parent::__construct(__CLASS__, 'Dashboard', 'ventas');
    }
 
-   protected function process()
+   protected function private_core()
    {
       /// Guardamos las extensiones
       $extensiones = array(
